@@ -13,14 +13,18 @@
   <style>
 
   /* =====================================================
-     CONFIGURAÇÃO GERAL
+     FUNDO TRANSPARENTE
      ===================================================== */
 
-  * {
-    box-sizing: border-box;
+  html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    background: transparent !important;
   }
 
-  html,
   body {
     width: 100%;
     height: 100%;
@@ -28,88 +32,67 @@
     padding: 0;
 
     overflow: hidden;
+
+    background: transparent !important;
   }
 
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-
-    /* IMPORTANTE:
-       deixa o fundo transparente para aparecer
-       o fundo original do Looker Studio */
-    background: transparent;
-
-    color: #17005c;
+  * {
+    box-sizing: border-box;
   }
 
 
   /* =====================================================
-     CONTAINER PRINCIPAL
+     CONTAINER
      ===================================================== */
 
   .container {
     width: 100%;
     height: 100%;
 
-    padding: 12px 16px 14px;
+    margin: 0;
+    padding: 10px 16px 12px;
 
     display: flex;
     flex-direction: column;
 
-    background: transparent;
+    background: transparent !important;
   }
 
 
   /* =====================================================
-     CABEÇALHO "SUGESTÕES"
+     FAIXA "SUGESTÕES"
      ===================================================== */
 
   .cabecalho {
     position: relative;
 
     width: 72%;
-    min-width: 190px;
+    height: 34px;
 
-    height: 42px;
+    flex-shrink: 0;
 
     display: flex;
     align-items: center;
 
     padding-left: 22px;
 
-    margin-bottom: 15px;
+    margin-bottom: 14px;
 
     background: #17005c;
 
-    border-radius: 22px;
+    border-radius: 20px;
 
-    color: white;
+    color: #ffffff;
 
-    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 15px;
     font-weight: 700;
+
     text-transform: uppercase;
 
-    overflow: visible;
-  }
-
-
-  /* detalhe rosa do cabeçalho */
-
-  .cabecalho::after {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    right: -5px;
-
-    width: 13px;
-    height: 42px;
-
-    background: #d50050;
-
-    border-radius: 0 22px 22px 0;
-
-    z-index: -1;
+    /* cria o detalhe rosa atrás da faixa */
+    box-shadow: 5px 0 0 #d50050;
   }
 
 
@@ -121,22 +104,26 @@
     display: flex;
     align-items: center;
 
-    gap: 8px;
+    gap: 7px;
 
-    margin-bottom: 4px;
+    margin: 0 0 4px 0;
 
     color: #17005c;
+
+    font-family: Arial, Helvetica, sans-serif;
 
     font-size: 18px;
     font-weight: 700;
 
-    line-height: 1.2;
+    line-height: 1.15;
   }
 
 
   .titulo .icone {
-    font-size: 19px;
+    display: flex;
+    align-items: center;
 
+    font-size: 18px;
     line-height: 1;
   }
 
@@ -146,18 +133,36 @@
      ===================================================== */
 
   .subtitulo {
-    margin-bottom: 10px;
+    margin: 0 0 10px 0;
 
-    color: #555;
+    color: #555555;
+
+    font-family: Arial, Helvetica, sans-serif;
 
     font-size: 12px;
 
-    line-height: 1.25;
+    line-height: 1.2;
   }
 
 
   /* =====================================================
-     ÁREA DO TEXTAREA
+     FORMULÁRIO
+     ===================================================== */
+
+  #formulario {
+    width: 100%;
+
+    flex: 1;
+
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  /* =====================================================
+     CAIXA DE TEXTO
      ===================================================== */
 
   textarea {
@@ -165,21 +170,21 @@
 
     flex: 1;
 
-    min-height: 80px;
+    min-height: 70px;
 
     resize: none;
 
     padding: 12px 13px;
 
-    border: 1px solid rgba(23, 0, 92, 0.15);
+    border: 1px solid #d8d5e4;
 
     border-radius: 10px;
 
     outline: none;
 
-    background: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.35) !important;
 
-    color: #333;
+    color: #333333;
 
     font-family: Arial, Helvetica, sans-serif;
 
@@ -189,23 +194,22 @@
 
     transition:
       border-color 0.2s ease,
-      box-shadow 0.2s ease,
-      background 0.2s ease;
+      background 0.2s ease,
+      box-shadow 0.2s ease;
   }
 
 
   textarea::placeholder {
-    color: #888;
+    color: #888888;
   }
 
 
   textarea:focus {
     border-color: #17005c;
 
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.55) !important;
 
-    box-shadow:
-      0 0 0 2px rgba(23, 0, 92, 0.08);
+    box-shadow: 0 0 0 2px rgba(23, 0, 92, 0.08);
   }
 
 
@@ -214,15 +218,17 @@
      ===================================================== */
 
   .rodape {
+    width: 100%;
+
     display: flex;
 
     align-items: center;
 
     justify-content: space-between;
 
-    gap: 10px;
-
     margin-top: 10px;
+
+    flex-shrink: 0;
   }
 
 
@@ -231,7 +237,9 @@
      ===================================================== */
 
   .contador {
-    color: #777;
+    color: #666666;
+
+    font-family: Arial, Helvetica, sans-serif;
 
     font-size: 10px;
 
@@ -254,7 +262,7 @@
 
     background: #17005c;
 
-    color: white;
+    color: #ffffff;
 
     font-family: Arial, Helvetica, sans-serif;
 
@@ -266,28 +274,12 @@
 
     white-space: nowrap;
 
+    /* pequeno detalhe rosa igual ao restante da página */
+    box-shadow: 4px 0 0 #d50050;
+
     transition:
       transform 0.15s ease,
       opacity 0.15s ease;
-  }
-
-
-  /* detalhe rosa no botão */
-
-  button::after {
-    content: "";
-
-    position: absolute;
-
-    right: -3px;
-    top: 5px;
-
-    width: 4px;
-    height: calc(100% - 10px);
-
-    background: #d50050;
-
-    border-radius: 0 5px 5px 0;
   }
 
 
@@ -313,15 +305,17 @@
 
 
   /* =====================================================
-     MENSAGEM DE ENVIO
+     MENSAGEM
      ===================================================== */
 
   #mensagem {
     min-height: 14px;
 
-    margin-top: 5px;
+    margin-top: 4px;
 
     color: #17005c;
+
+    font-family: Arial, Helvetica, sans-serif;
 
     font-size: 10px;
 
@@ -353,6 +347,54 @@
     <span class="icone">💡</span>
     <span>Tem uma sugestão?</span>
   </div>
+
+  <div class="subtitulo">
+    Escreva sua sugestão abaixo e envie para nós.
+  </div>
+
+  <form
+    id="formulario"
+    method="POST"
+    action="SUA_URL_DO_APPS_SCRIPT"
+    target="envio"
+  >
+
+    <textarea
+      id="sugestao"
+      name="sugestao"
+      maxlength="1000"
+      placeholder="Digite sua sugestão aqui..."
+      required
+    ></textarea>
+
+    <div class="rodape">
+
+      <div
+        class="contador"
+        id="contador"
+      >
+        0 / 1000
+      </div>
+
+      <button
+        type="submit"
+        id="botao"
+      >
+        Enviar sugestão
+      </button>
+
+    </div>
+
+  </form>
+
+  <iframe
+    name="envio"
+    id="envio"
+  ></iframe>
+
+  <div id="mensagem"></div>
+
+</div>
 
   <div class="subtitulo">
     Escreva sua sugestão abaixo e envie para nós.
